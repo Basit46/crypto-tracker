@@ -12,7 +12,7 @@ const CoinDetail = () => {
 
   const [coinDetail, setCoinDetail] = useState();
   const { watchList, addToWatchList, removeFromWatchList } = useFetchContext();
-  const [interval, setTimeInterval] = useState(365);
+  const [interval, setTimeInterval] = useState(7);
 
   const [isLiked, setIsLiked] = useState(false);
 
@@ -104,7 +104,7 @@ const CoinDetail = () => {
             <option value="1">24 Hours</option>
             <option value="7">1 week</option>
             <option value="30">1 month</option>
-            <option value="365">1 year</option>
+            <option value="360">1 year</option>
           </select>
         </div>
       </div>
