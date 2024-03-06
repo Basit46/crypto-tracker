@@ -18,7 +18,7 @@ const Header = () => {
   const [isMsgMOpen, setIsMsgMOpen] = useState(false);
 
   return (
-    <header className="h-[65px] bg-white sticky z-[4] top-0 border-b border-b-primary px-[40px] flex justify-between items-center">
+    <header className="h-[65px] bg-white sticky z-[4] top-0 border-b border-b-primary px-[15px] sm:px-[40px] flex justify-between items-center">
       <p className="hidden md:block text-[1.5rem] font-semibold">
         Hello, {user?.displayName} 👋
       </p>
@@ -26,8 +26,8 @@ const Header = () => {
         CT
       </Link>
 
-      <div className="flex gap-[40px] items-center">
-        <div className="relative">
+      <div className="flex gap-[20px] sm:gap-[40px] items-center">
+        <div className="relative hidden vsm:block">
           <div
             onClick={() => setIsMsgMOpen((prev) => !prev)}
             className="h-[40px] w-[40px] cursor-pointer rounded-full border-[1px] border-primary grid place-items-center"

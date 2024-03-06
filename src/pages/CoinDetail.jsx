@@ -72,12 +72,12 @@ const CoinDetail = () => {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex flex-col md:flex-row md:items-center">
         <div className="flex gap-[15px] items-center">
           <img className="w-[50px]" src={coinDetail?.image} alt="crypto logo" />
           <p className="text-[2.5rem] font-semibold">{coinDetail?.name}</p>
         </div>
-        <p className="ml-[80px] mr-[20px] text-[2rem]">
+        <p className="md:ml-[80px] md:mr-[20px] text-[2rem]">
           $ {coinDetail?.current_price}
         </p>
         <p
@@ -85,7 +85,7 @@ const CoinDetail = () => {
             coinDetail?.price_change_percentage_24h > 0
               ? "bg-[green]"
               : "bg-[red]"
-          } py-[5px] px-[10px] text-white text-[1.5rem] rounded-[10px]`}
+          } w-fit py-[5px] px-[10px] text-white text-[1.5rem] rounded-[10px]`}
         >
           {coinDetail?.price_change_percentage_24h}%
         </p>
@@ -115,7 +115,7 @@ const CoinDetail = () => {
       </div>
 
       <div className="flex flex-col xmd:flex-row gap-[20px] xmd:items-center xmd:gap-[40px]">
-        <button className="w-fit text-[1.5rem] border-[2px] tracking-[1.8px] text-[gold] border-primary rounded-[10px] h-[50px] px-[10px]">
+        <button className="w-fit h-fit text-[1.5rem] border-[2px] tracking-[1.8px] text-[gold] border-primary rounded-[10px] h-[50px] px-[10px]">
           {isLiked ? (
             <div
               onClick={() => removeFromWatchList(coinDetail.id)}
