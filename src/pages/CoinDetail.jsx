@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useFetchContext } from "../context/fetchContext";
 import { Chart } from "react-google-charts";
 import { useGlobalContext } from "../context/globalContext";
+import axios from "axios";
 
 const CoinDetail = () => {
   const params = useParams();
@@ -48,17 +49,21 @@ const CoinDetail = () => {
       headers: { "x-cg-demo-api-key": api_key },
     };
 
-    fetch(
-      `https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=usd&days=${interval}&precision=2`,
-      options
-    )
-      .then((response) => response.json())
+    axios
+      .get(
+        `https://api.coingecko.com/api/v3/coins/${
+          params.id || "bitcoin"
+        }/market_chart?vs_currency=usd&days=${interval}&precision=2`,
+        options
+      )
       .then((response) => {
-        const formattedPrices = response.prices.map(([timestamp, value]) => {
-          const date = new Date(timestamp);
-          const formattedDate = date.toLocaleString(); // Adjust the formatting as needed
-          return [formattedDate, value];
-        });
+        const formattedPrices = response.data.prices.map(
+          ([timestamp, value]) => {
+            const date = new Date(timestamp);
+            const formattedDate = date.toLocaleString(); // Adjust the formatting as needed
+            return [formattedDate, value];
+          }
+        );
 
         setData((prevData) => [...prevData, ...formattedPrices]);
       })
