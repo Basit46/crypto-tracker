@@ -1,0 +1,31 @@
+@import url("https://fonts.cdnfonts.com/css/mona-sans");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Mona-Sans", sans-serif;
+}
+
+@layer components {
+  nav ul a {
+    @apply flex items-center gap-[10px];
+  }
+  nav ul a p {
+    @apply text-[1.3rem];
+  }
+  nav ul a svg {
+    @apply text-[24px];
+  }
+  nav ul a.active p {
+    @apply text-[red];
+  }
+
+  table thead th {
+    @apply pb-[10px] border-b-[2px]  border-primary;
+  }
+  table td {
+    @apply py-[20px] border-b  border-primary;
+  }
+}
