@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { IoTriangleSharp } from "react-icons/io5";
 import { useFetchContext } from "../context/fetchContext";
 import { useGlobalContext } from "../context/globalContext";
+import { FaTimes } from "react-icons/fa";
 
 const PortfolioCoin = ({ coin }) => {
   const { coins } = useFetchContext();
@@ -15,7 +16,7 @@ const PortfolioCoin = ({ coin }) => {
 
   return (
     <tr>
-      <td align="left" className="w-[40%]">
+      <td align="left" className="xmd:w-[40%]">
         <div className="flex gap-[10px] items-center">
           <img
             className="w-[20px]"
@@ -32,7 +33,10 @@ const PortfolioCoin = ({ coin }) => {
 
       <td align="left">
         <p>
-          $ {parseFloat(coin?.qty) * parseFloat(coinDetails?.current_price)}
+          ${" "}
+          {(
+            parseFloat(coin?.qty) * parseFloat(coinDetails?.current_price)
+          ).toFixed(2)}
         </p>
       </td>
 
@@ -59,9 +63,15 @@ const PortfolioCoin = ({ coin }) => {
       <td>
         <button
           onClick={() => deleteWalletCoin(coin.id)}
-          className="bg-[red] text-white px-[10px] py-[5px]"
+          className="hidden xmd:block bg-[red] text-white px-[10px] py-[5px]"
         >
           REMOVE
+        </button>
+        <button
+          onClick={() => deleteWalletCoin(coin.id)}
+          className="block xmd:hidden bg-[red] text-white px-[10px] py-[5px]"
+        >
+          <FaTimes />
         </button>
       </td>
     </tr>

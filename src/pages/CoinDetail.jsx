@@ -91,7 +91,7 @@ const CoinDetail = () => {
         </p>
       </div>
 
-      <div className="relative my-[20px] w-full h-[400px] border border-primary rounded-[10px] overflow-y-hidden overflow-x-auto">
+      <div className="relative my-[20px]  h-[400px] border border-primary rounded-[10px] overflow-y-hidden overflow-x-auto">
         <Chart
           chartType="LineChart"
           width="100%"
@@ -114,8 +114,8 @@ const CoinDetail = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-[40px]">
-        <button className="text-[1.5rem] border-[2px] tracking-[1.8px] text-[gold] border-primary rounded-[10px] h-[50px] px-[10px]">
+      <div className="flex flex-col xmd:flex-row gap-[20px] xmd:items-center xmd:gap-[40px]">
+        <button className="w-fit text-[1.5rem] border-[2px] tracking-[1.8px] text-[gold] border-primary rounded-[10px] h-[50px] px-[10px]">
           {isLiked ? (
             <div
               onClick={() => removeFromWatchList(coinDetail.id)}
@@ -139,7 +139,7 @@ const CoinDetail = () => {
             setIsSNMOpen(true);
             setCoinToAlertId(params.id);
           }}
-          className="text-[1.5rem] border-[2px] tracking-[1.8px] border-primary rounded-[10px] h-[50px] px-[10px] flex items-center gap-[10px]"
+          className="w-fit text-[1.5rem] border-[2px] tracking-[1.8px] border-primary rounded-[10px] h-[50px] px-[10px] flex items-center gap-[10px]"
         >
           SET NOTIFICATION
         </button>

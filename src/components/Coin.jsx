@@ -23,7 +23,7 @@ const Coin = ({ coin }) => {
 
   return (
     <tr className="cursor-pointer">
-      <td align="left" className="w-[35%]">
+      <td align="left" className="xl:w-[35%]">
         <div className="flex gap-[10px] items-center">
           {isLiked ? (
             <IoMdStar
@@ -47,7 +47,7 @@ const Coin = ({ coin }) => {
         </div>
       </td>
 
-      <td align="left">
+      <td className="hidden xmd:block" align="left">
         <p className="uppercase">
           {coin?.symbol} <span className="font-medium">/USD</span>
         </p>
@@ -70,7 +70,7 @@ const Coin = ({ coin }) => {
         </div>
       </td>
 
-      <td align="center">
+      <td className="hidden xmd:block" align="center">
         <p>{coin?.total_volume}</p>
       </td>
     </tr>

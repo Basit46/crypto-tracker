@@ -5,18 +5,26 @@ import { FcGoogle } from "react-icons/fc";
 import UserModal from "../modals/UserModal";
 import MessagesModal from "../modals/MessagesModal";
 import { useAuthContext } from "../context/authContext";
+import { FaBars } from "react-icons/fa6";
+import { FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context/globalContext";
 
 const Header = () => {
   const { user, signIn } = useAuthContext();
+  const { isOpen, setIsOpen } = useGlobalContext();
 
   const [isUserMOpen, setIsUserMOpen] = useState(false);
   const [isMsgMOpen, setIsMsgMOpen] = useState(false);
 
   return (
     <header className="h-[65px] bg-white sticky z-[4] top-0 border-b border-b-primary px-[40px] flex justify-between items-center">
-      <p className="text-[1.5rem] font-semibold">
+      <p className="hidden md:block text-[1.5rem] font-semibold">
         Hello, {user?.displayName} 👋
       </p>
+      <Link to="/" className="block md:hidden text-[1.5rem] font-semibold">
+        CT
+      </Link>
 
       <div className="flex gap-[40px] items-center">
         <div className="relative">
@@ -59,6 +67,18 @@ const Header = () => {
               setIsUserMOpen={setIsUserMOpen}
             />
           </div>
+        )}
+
+        {isOpen ? (
+          <FaTimes
+            onClick={() => setIsOpen(false)}
+            className="xl:hidden text-[red] cursor-pointer text-[24px]"
+          />
+        ) : (
+          <FaBars
+            onClick={() => setIsOpen(true)}
+            className="xl:hidden cursor-pointer text-[24px]"
+          />
         )}
       </div>
     </header>

@@ -9,6 +9,8 @@ const globalContext = createContext();
 const GlobalContextProvider = ({ children }) => {
   const { user } = useAuthContext();
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const [isPFMOpen, setIsPFMOpen] = useState(false);
   const [walletCoins, setWalletCoins] = useState([]);
 
@@ -146,6 +148,8 @@ const GlobalContextProvider = ({ children }) => {
         deleteAlert,
         isNotiLoading,
         setIsNotiLoading,
+        isOpen,
+        setIsOpen,
       }}
     >
       {children}

@@ -34,7 +34,7 @@ const Portfolio = () => {
     <div>
       <h1 className="text-[3rem] font-semibold">Total Asset</h1>
 
-      <div className="my-[20px]  flex justify-between items-start">
+      <div className="my-[20px] flex flex-col xmd:flex-row gap-[15px] xmd:gap-0 justify-between items-start">
         <div className="bg-primary text-white h-fit w-[300px] rounded-[10px] p-[20px]">
           <h1 className="text-[2rem] font-semibold tracking-[1.9px]">
             $ {bal.total.toFixed(2)}
@@ -69,7 +69,8 @@ const Portfolio = () => {
         <thead>
           <tr>
             <th align="left">Asset</th>
-            <th align="left">Quantity</th>
+            <th align="left">Qty</th>
+
             <th align="left">Value</th>
             <th align="left">Change</th>
             <th align="left"></th>

@@ -4,7 +4,7 @@ const ArticleDetail = () => {
   return (
     <div>
       <div className="w-full h-[400px] bg-primary"></div>
-      <h1 className="my-[20px] font-semibold text-[2.5rem] leading-[1.2]">
+      <h1 className="my-[20px] font-semibold text-[1.9rem] xmd:text-[2.5rem] leading-[1.2]">
         Memecoins rises as bull market continues, what and what to watch
       </h1>
       <p>

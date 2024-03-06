@@ -5,7 +5,9 @@ const ManageNoti = () => {
   const { alerts, isNotiLoading } = useGlobalContext();
   return (
     <div>
-      <h1 className="text-[3rem] font-semibold">Your current notifications</h1>
+      <h1 className="text-[2rem] xmd:text-[3rem] font-semibold">
+        Your current notifications
+      </h1>
 
       <div className="mt-[20px] ">
         {isNotiLoading

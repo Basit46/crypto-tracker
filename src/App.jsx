@@ -16,11 +16,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="w-full flex">
+    <div className="w-full xl:flex">
       <Navbar />
-      <div className="flex-1">
+      <div className="xl:flex-1">
         <Header />
-        <div className="px-[40px] py-[20px] w-full">
+        <div className="px-[20px] xmd:px-[40px] py-[20px] w-full">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/coins/:id" element={<CoinDetail />} />
