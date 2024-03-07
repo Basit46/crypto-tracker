@@ -4,6 +4,8 @@ import { doc, getDoc, onSnapshot, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useAuthContext } from "./authContext";
 
+import axios from "axios";
+
 const globalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
@@ -18,6 +20,35 @@ const GlobalContextProvider = ({ children }) => {
   const [coinToAlertId, setCoinToAlertId] = useState("");
   const [alerts, setAlerts] = useState([]);
   const [isNotiLoading, setIsNotiLoading] = useState(false);
+
+  // const alertConditionData = {
+  //   type: "percent_price",
+  //   currency: "BTC",
+  //   percent: "1",
+  //   direction: "up",
+  //   window: 60,
+  //   channel: { name: "email" },
+  //   exchange: "Binance",
+  // };
+
+  // const headers = {
+  //   "Content-Type": "application/json",
+  //   Authorization: "Basic " + btoa("yPvE27NIl25EQHnWBu5Qrf1vNGadg:"), // Base64 encode the API key
+  // };
+
+  // const apiUrl = "https://api.cryptocurrencyalerting.com/v1/alert-conditions";
+
+  // axios
+  //   .post(apiUrl, alertConditionData, { headers })
+  //   .then((response) => {
+  //     console.log("Success:", response.data);
+  //   })
+  //   .catch((error) => {
+  //     console.error(
+  //       "Error:",
+  //       error.response ? error.response.data : error.message
+  //     );
+  //   });
 
   useEffect(() => {
     if (user) {

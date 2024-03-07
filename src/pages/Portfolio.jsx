@@ -65,23 +65,25 @@ const Portfolio = () => {
 
       <h1 className="text-[1.5rem] font-semibold">Asset List</h1>
 
-      <table className="mt-[20px] w-full">
-        <thead>
-          <tr>
-            <th align="left">Asset</th>
-            <th align="left">Qty</th>
+      <div className="w-full overflow-x-auto">
+        <table className="mt-[20px] w-[500px] sm:w-full">
+          <thead>
+            <tr>
+              <th align="left">Asset</th>
+              <th align="left">Qty</th>
 
-            <th align="left">Value</th>
-            <th align="left">Change</th>
-            <th align="left"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {walletCoins.map((coin) => (
-            <PortfolioCoin key={coin.id} coin={coin} />
-          ))}
-        </tbody>
-      </table>
+              <th align="left">Value</th>
+              <th align="left">Change</th>
+              <th align="left"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {walletCoins.map((coin) => (
+              <PortfolioCoin key={coin.id} coin={coin} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

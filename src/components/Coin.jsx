@@ -47,7 +47,7 @@ const Coin = ({ coin }) => {
         </div>
       </td>
 
-      <td className="hidden xmd:block" align="left">
+      <td align="left">
         <p className="uppercase">
           {coin?.symbol} <span className="font-medium">/USD</span>
         </p>
@@ -70,7 +70,7 @@ const Coin = ({ coin }) => {
         </div>
       </td>
 
-      <td className="hidden xmd:block" align="center">
+      <td align="center">
         <p>{coin?.total_volume}</p>
       </td>
     </tr>

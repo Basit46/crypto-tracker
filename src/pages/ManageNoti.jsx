@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import NotiItem from "../components/NotiItem";
 import { useGlobalContext } from "../context/globalContext";
 
 const ManageNoti = () => {
   const { alerts, isNotiLoading } = useGlobalContext();
+
   return (
     <div>
       <h1 className="text-[2rem] xmd:text-[3rem] font-semibold">

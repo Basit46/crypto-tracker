@@ -27,7 +27,7 @@ const Header = () => {
       </Link>
 
       <div className="flex gap-[20px] sm:gap-[40px] items-center">
-        <div className="relative hidden vsm:block">
+        <div className="relative hidden ">
           <div
             onClick={() => setIsMsgMOpen((prev) => !prev)}
             className="h-[40px] w-[40px] cursor-pointer rounded-full border-[1px] border-primary grid place-items-center"

@@ -23,6 +23,24 @@ const SetNotiModal = () => {
         time: vals.time,
       });
 
+      // const dataToSend = {
+      //   id: coinToAlertId,
+      //   change: vals.change,
+      //   mode: vals.mode,
+      //   time: vals.time,
+      // };
+
+      // fetch("http://localhost:5000/addAlert", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(dataToSend),
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => console.log(data.message))
+      //   .catch((error) => console.error("Error fetching data:", error));
+
       setIsSNMOpen(false);
       setCoinToAlertId("");
       setVals({ id: coinToAlertId, change: "", mode: "up", time: "1" });
@@ -30,6 +48,7 @@ const SetNotiModal = () => {
       toast("Enter all Values");
     }
   };
+
   return (
     <div
       className={`${

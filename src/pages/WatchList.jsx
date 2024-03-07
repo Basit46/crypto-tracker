@@ -20,25 +20,27 @@ const WatchList = () => {
         </button>
       </div> */}
 
-      <table className="w-full">
-        <thead>
-          <tr>
-            <th align="left">Asset</th>
-            <th className="hidden xmd:block" align="left">
-              Pair
-            </th>
-            <th align="left">Last Price</th>
-            <th align="left">24h Change</th>
-            <th className="hidden xmd:block" align="center">
-              TV
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {watchList.length > 0 &&
-            watchList.map((coin, i) => <Coin key={i} coin={coin} />)}
-        </tbody>
-      </table>
+      <div className="w-full overflow-x-auto">
+        <table className="w-[640px] sm:w-full">
+          <thead>
+            <tr>
+              <th align="left">Asset</th>
+              <th className="hidden xmd:block" align="left">
+                Pair
+              </th>
+              <th align="left">Last Price</th>
+              <th align="left">24h Change</th>
+              <th className="hidden xmd:block" align="center">
+                TV
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {watchList.length > 0 &&
+              watchList.map((coin, i) => <Coin key={i} coin={coin} />)}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
