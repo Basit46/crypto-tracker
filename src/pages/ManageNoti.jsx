@@ -11,12 +11,14 @@ const ManageNoti = () => {
         Your current notifications
       </h1>
 
-      <div className="mt-[20px] ">
-        {isNotiLoading
-          ? "Loading..."
-          : alerts.map((alert, index) => (
-              <NotiItem key={index} alert={alert} />
-            ))}
+      <div className="w-full overflow-x-auto">
+        <div className="mt-[20px] w-[500px] sm:w-full">
+          {isNotiLoading
+            ? "Loading..."
+            : alerts.map((alert, index) => (
+                <NotiItem key={index} alert={alert} />
+              ))}
+        </div>
       </div>
     </div>
   );
