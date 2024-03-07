@@ -119,15 +119,15 @@ const CoinDetail = () => {
           {isLiked ? (
             <div
               onClick={() => removeFromWatchList(coinDetail.id)}
-              className="flex items-center gap-[10px]"
+              className="flex items-center gap-[5px] vsm:gap-[10px]"
             >
               <IoMdStar className="text-[gold]" />
-              <p className="leading-[0]">REMOVE FROM WATCHLIST</p>
+              <p className="leading-[0]">REMOVE</p>
             </div>
           ) : (
             <div
               onClick={() => addToWatchList(coinDetail.id)}
-              className="flex items-center gap-[10px]"
+              className="flex items-center gap-[5px] vsm:gap-[10px]"
             >
               <IoMdStarOutline className="text-[gold]" />
               <p>ADD TO WATCHLIST</p>
