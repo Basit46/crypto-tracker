@@ -25,14 +25,10 @@ const WatchList = () => {
           <thead>
             <tr>
               <th align="left">Asset</th>
-              <th className="hidden xmd:block" align="left">
-                Pair
-              </th>
+              <th align="left">Pair</th>
               <th align="left">Last Price</th>
               <th align="left">24h Change</th>
-              <th className="hidden xmd:block" align="center">
-                TV
-              </th>
+              <th align="center">TV</th>
             </tr>
           </thead>
           <tbody>
