@@ -115,7 +115,7 @@ const CoinDetail = () => {
       </div>
 
       <div className="flex flex-col xmd:flex-row gap-[20px] xmd:items-center xmd:gap-[40px]">
-        <button className="w-fit h-fit text-[1.5rem] border-[2px] tracking-[1.8px] text-[gold] border-primary rounded-[10px] sm:h-[50px] px-[10px]">
+        <button className="w-fit h-fit text-[1.5rem] border-[2px] tracking-[1.8px] text-[gold] border-primary rounded-[10px] py-[5px] vsm:py-0 sm:h-[50px] px-[10px]">
           {isLiked ? (
             <div
               onClick={() => removeFromWatchList(coinDetail.id)}
