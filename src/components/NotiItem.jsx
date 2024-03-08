@@ -4,7 +4,7 @@ import { useGlobalContext } from "../context/globalContext";
 
 const NotiItem = ({ alert }) => {
   const { coins } = useFetchContext();
-  const { deleteAlert } = useGlobalContext();
+  const { deleteAlert, deleteAlertFromApi } = useGlobalContext();
 
   const [coinDetail, setCoinDetail] = useState();
 
@@ -15,22 +15,27 @@ const NotiItem = ({ alert }) => {
   return (
     <div className="flex items-center justify-between border-b-primary border-b py-[10px]">
       <div className="w-[30%] flex gap-[10px] items-center">
-        <img className="w-[20px]" src={coinDetail?.image} alt="crypto logo" />
-        <p className="">{coinDetail?.name}</p>
+        {/* <img className="w-[20px]" src={coinDetail?.image} alt="crypto logo" /> */}
+        <p className="font-bold">{alert?.currency}</p>
       </div>
       <p className="text-[18px] font-medium">
-        If {alert.change}%{" "}
+        If {alert.percent}%{" "}
         <span
-          className={`${alert.mode == "up" ? "text-[green]" : "text-[red]"}`}
+          className={`${
+            alert.direction == "up" ? "text-[green]" : "text-[red]"
+          }`}
         >
-          {alert.mode}
+          {alert.direction}
         </span>{" "}
         in{" "}
-        {alert.time < 60 ? `${alert.time}m` : `${parseFloat(alert.time) / 60}h`}
+        {alert.window < 60
+          ? `${alert.window}m`
+          : `${parseFloat(alert.window) / 60}h`}
       </p>
       <button
         onClick={() => {
-          deleteAlert(coinDetail.id);
+          // deleteAlert(coinDetail.id);
+          deleteAlertFromApi(alert.id);
         }}
         className="bg-[red] text-white px-[10px] py-[5px]"
       >

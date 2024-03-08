@@ -5,11 +5,14 @@ import { db } from "../../firebase";
 import { useAuthContext } from "./authContext";
 
 import axios from "axios";
+import { useFetchContext } from "./fetchContext";
+import { coinsList } from "../data/coinList";
 
 const globalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
   const { user } = useAuthContext();
+  const { coins } = useFetchContext();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,36 +22,95 @@ const GlobalContextProvider = ({ children }) => {
   const [isSNMOpen, setIsSNMOpen] = useState(false);
   const [coinToAlertId, setCoinToAlertId] = useState("");
   const [alerts, setAlerts] = useState([]);
+  const [alertsApi, setAlertsApi] = useState([]);
   const [isNotiLoading, setIsNotiLoading] = useState(false);
 
-  // const alertConditionData = {
-  //   type: "percent_price",
-  //   currency: "BTC",
-  //   percent: "1",
-  //   direction: "up",
-  //   window: 60,
-  //   channel: { name: "email" },
-  //   exchange: "Binance",
-  // };
+  const addAlertToApi = (vals) => {
+    const alert_api_key = import.meta.env.VITE_ALERT_API_KEY;
 
-  // const headers = {
-  //   "Content-Type": "application/json",
-  //   Authorization: "Basic " + btoa("yPvE27NIl25EQHnWBu5Qrf1vNGadg:"), // Base64 encode the API key
-  // };
+    const rent = coins.find((rentIt) => rentIt.id == vals.id);
+    const toUse = coinsList.find((listIt) => listIt.name == rent.name);
+    console.log(toUse.id);
+    const alertConditionData = {
+      type: "percent_price",
+      currency: toUse.id || "BTC",
+      percent: vals.change,
+      direction: vals.mode,
+      window: parseFloat(vals.time),
+      channel: { name: "telegram" },
+      exchange: "Binance",
+    };
 
-  // const apiUrl = "https://api.cryptocurrencyalerting.com/v1/alert-conditions";
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: "Basic " + btoa(`${alert_api_key}:`), // Base64 encode the API key
+    };
 
-  // axios
-  //   .post(apiUrl, alertConditionData, { headers })
-  //   .then((response) => {
-  //     console.log("Success:", response.data);
-  //   })
-  //   .catch((error) => {
-  //     console.error(
-  //       "Error:",
-  //       error.response ? error.response.data : error.message
-  //     );
-  //   });
+    const apiUrl = "https://api.cryptocurrencyalerting.com/v1/alert-conditions";
+
+    axios
+      .post(apiUrl, alertConditionData, { headers })
+      .then((response) => {
+        toast("Alert Added");
+        getAlertsFromApi();
+      })
+      .catch((error) => {
+        console.error(
+          "Error:",
+          error.response ? error.response.data : error.message
+        );
+      });
+  };
+
+  useEffect(() => {
+    getAlertsFromApi();
+  }, []);
+
+  const getAlertsFromApi = async () => {
+    const alert_api_key = import.meta.env.VITE_ALERT_API_KEY;
+
+    try {
+      const response = await axios.get(
+        "https://api.cryptocurrencyalerting.com/v1/alert-conditions?type=percent_price",
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa(`${alert_api_key}:`), // Base64 encode the API key
+          },
+        }
+      );
+
+      // Handle the response data here, for example:
+      setAlertsApi(response.data);
+      console.log("Response Data:", response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  const deleteAlertFromApi = (id) => {
+    const alert_api_key = import.meta.env.VITE_ALERT_API_KEY;
+
+    fetch(`https://api.cryptocurrencyalerting.com/v1/alert-conditions/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic " + btoa(`${alert_api_key}:`),
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+
+        if (res.status === "success") {
+          toast("Alert Deleted");
+          getAlertsFromApi();
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  };
 
   useEffect(() => {
     if (user) {
@@ -181,6 +243,9 @@ const GlobalContextProvider = ({ children }) => {
         setIsNotiLoading,
         isOpen,
         setIsOpen,
+        addAlertToApi,
+        alertsApi,
+        deleteAlertFromApi,
       }}
     >
       {children}

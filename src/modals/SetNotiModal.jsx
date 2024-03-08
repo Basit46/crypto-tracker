@@ -4,8 +4,14 @@ import { toast } from "react-toastify";
 import { useGlobalContext } from "../context/globalContext";
 
 const SetNotiModal = () => {
-  const { isSNMOpen, setIsSNMOpen, addAlert, coinToAlertId, setCoinToAlertId } =
-    useGlobalContext();
+  const {
+    isSNMOpen,
+    setIsSNMOpen,
+    addAlert,
+    coinToAlertId,
+    setCoinToAlertId,
+    addAlertToApi,
+  } = useGlobalContext();
 
   const [vals, setVals] = useState({
     id: coinToAlertId,
@@ -16,7 +22,7 @@ const SetNotiModal = () => {
 
   const handleSet = () => {
     if (vals.change != "" && vals.mode != "" && vals.time != "") {
-      addAlert({
+      addAlertToApi({
         id: coinToAlertId,
         change: vals.change,
         mode: vals.mode,

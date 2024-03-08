@@ -33,9 +33,9 @@ const Navbar = () => {
         <NavLink onClick={() => setIsOpen(false)} to="/portfolio">
           <FaWallet /> <p>Portfolio</p>
         </NavLink>
-        <NavLink onClick={() => setIsOpen(false)} to="/news">
+        {/* <NavLink onClick={() => setIsOpen(false)} to="/news">
           <ImNewspaper /> <p>News</p>
-        </NavLink>
+        </NavLink> */}
         <NavLink onClick={() => setIsOpen(false)} to="/notifications">
           <IoNotifications /> <p>Notifications</p>
         </NavLink>

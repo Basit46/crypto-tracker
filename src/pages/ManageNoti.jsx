@@ -3,7 +3,7 @@ import NotiItem from "../components/NotiItem";
 import { useGlobalContext } from "../context/globalContext";
 
 const ManageNoti = () => {
-  const { alerts, isNotiLoading } = useGlobalContext();
+  const { alerts, isNotiLoading, alertsApi } = useGlobalContext();
 
   return (
     <div>
@@ -15,7 +15,7 @@ const ManageNoti = () => {
         <div className="mt-[20px] w-[500px] sm:w-full">
           {isNotiLoading
             ? "Loading..."
-            : alerts.map((alert, index) => (
+            : alertsApi.map((alert, index) => (
                 <NotiItem key={index} alert={alert} />
               ))}
         </div>
