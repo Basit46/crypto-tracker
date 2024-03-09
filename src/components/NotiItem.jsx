@@ -28,9 +28,11 @@ const NotiItem = ({ alert }) => {
           {alert.direction}
         </span>{" "}
         in{" "}
-        {alert.window < 60
-          ? `${alert.window}m`
-          : `${parseFloat(alert.window) / 60}h`}
+        {alert.window != 1440
+          ? alert.window < 60
+            ? `${alert.window}m`
+            : `${parseFloat(alert.window) / 60}h`
+          : "90 days"}
       </p>
       <button
         onClick={() => {

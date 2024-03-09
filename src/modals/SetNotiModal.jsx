@@ -15,9 +15,9 @@ const SetNotiModal = () => {
 
   const [vals, setVals] = useState({
     id: coinToAlertId,
-    change: "",
+    change: "10",
     mode: "up",
-    time: "1",
+    time: "1440",
   });
 
   const handleSet = () => {
@@ -49,7 +49,7 @@ const SetNotiModal = () => {
 
       setIsSNMOpen(false);
       setCoinToAlertId("");
-      setVals({ id: coinToAlertId, change: "", mode: "up", time: "1" });
+      setVals({ id: coinToAlertId, change: "10", mode: "up", time: "1440" });
     } else {
       toast("Enter all Values");
     }
@@ -74,14 +74,18 @@ const SetNotiModal = () => {
           <label className="mb-[5px]" htmlFor="change">
             CHANGE in %:
           </label>
-          <input
+
+          <select
             value={vals.change}
             onChange={(e) => setVals({ ...vals, change: e.target.value })}
-            placeholder="5"
-            className="block w-full border-primary border-[2px] outline-none px-[4px]"
-            type="number"
-            id="change"
-          />
+            className="w-full block border-primary border-[2px] outline-none cursor-pointer"
+            id="time"
+          >
+            <option value={10}>10%</option>
+            <option value={20}>20%</option>
+            <option value={30}>30%</option>
+            <option value={40}>40%</option>
+          </select>
         </div>
         <div className="mt-[20px]">
           <label className="mb-[5px]" htmlFor="mode">
@@ -109,9 +113,13 @@ const SetNotiModal = () => {
           >
             <option value={1}>1m</option>
             <option value={60}>1h</option>
-            <option value={60 * 5}>5h</option>
-            <option value={60 * 10}>10h</option>
-            <option value={60 * 24}>24h</option>
+            <option value={120}>2h</option>
+            <option value={180}>3h</option>
+            <option value={240}>4h</option>
+            <option value={360}>6h</option>
+            <option value={720}>12h</option>
+            {/* <option value={1440}>24h</option> */}
+            <option value={1440}>90 days</option>
           </select>
         </div>
 
