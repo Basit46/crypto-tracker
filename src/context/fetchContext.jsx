@@ -32,7 +32,6 @@ const FetchContextProvider = ({ children }) => {
       )
 
       .then((res) => {
-        console.log(res.data);
         setCoins(res.data);
         setCoinsClone(res.data);
         setCoinsFetched(true);

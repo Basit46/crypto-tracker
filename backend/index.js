@@ -37,6 +37,11 @@ app.post("/addAlert", (req, res) => {
   }, 60 * 1000);
 });
 
+bot.sendMessage(
+  "1404652184",
+  "You will now start receiving crypto updates whenever a dip or high happens. Happy Trading"
+);
+
 const fetchBitcoinMarketChart = async () => {
   const coingeckoAPIKey = "CG-fn1QNCfAnMAB4yccJY3J5raa";
 
@@ -85,16 +90,16 @@ const fetchBitcoinMarketChart = async () => {
 
               let percent = ((nprice - pprice) / pprice) * 100;
 
-              if (percent > 0.001) {
+              if (percent > 10) {
                 bot.sendMessage(
-                  "821331693",
+                  "1404652184",
                   `${coin.name} is currently up ${percent}`
                 );
                 console.log(coin.name, coin.current_price, percent.toFixed(2));
               } else {
-                if (percent < 0.001) {
+                if (percent < -10) {
                   bot.sendMessage(
-                    "821331693",
+                    "1404652184",
                     `${coin.name} is currently down ${percent}`
                   );
                   console.log(
@@ -142,16 +147,16 @@ const fetchBitcoinMarketChart = async () => {
 
               let percent = ((nprice - pprice) / pprice) * 100;
 
-              if (percent > 0.001) {
+              if (percent > 10) {
                 bot.sendMessage(
-                  "821331693",
+                  "1404652184",
                   `${coin.name} is currently up ${percent}`
                 );
                 console.log(coin.name, coin.current_price, percent.toFixed(2));
               } else {
-                if (percent < 0.001) {
+                if (percent < -10) {
                   bot.sendMessage(
-                    "821331693",
+                    "1404652184",
                     `${coin.name} is currently down ${percent}`
                   );
                   console.log(
@@ -175,11 +180,11 @@ const fetchBitcoinMarketChart = async () => {
     .catch((error) => console.error("Fetch error:", error));
 };
 
-fetchBitcoinMarketChart();
+// fetchBitcoinMarketChart();
 
-setInterval(() => {
-  fetchBitcoinMarketChart();
-}, 20 * 60 * 1000); // 10 minutes interval
+// setInterval(() => {
+//   fetchBitcoinMarketChart();
+// }, 20 * 60 * 1000); // 20 minutes interval
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

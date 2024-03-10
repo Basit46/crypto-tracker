@@ -30,7 +30,7 @@ const GlobalContextProvider = ({ children }) => {
 
     const rent = coins.find((rentIt) => rentIt.id == vals.id);
     const toUse = coinsList.find((listIt) => listIt.name == rent.name);
-    console.log(toUse.id);
+    // console.log(toUse.id);
     const alertConditionData = {
       type: "percent_price",
       currency: toUse.id || "BTC",
