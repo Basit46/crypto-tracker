@@ -85,14 +85,14 @@ const fetchBitcoinMarketChart = async () => {
 
               let percent = ((nprice - pprice) / pprice) * 100;
 
-              if (percent > 10) {
+              if (percent > 0.001) {
                 bot.sendMessage(
                   "821331693",
                   `${coin.name} is currently up ${percent}`
                 );
                 console.log(coin.name, coin.current_price, percent.toFixed(2));
               } else {
-                if (percent <= -10) {
+                if (percent < 0.001) {
                   bot.sendMessage(
                     "821331693",
                     `${coin.name} is currently down ${percent}`
@@ -142,14 +142,14 @@ const fetchBitcoinMarketChart = async () => {
 
               let percent = ((nprice - pprice) / pprice) * 100;
 
-              if (percent > 10) {
+              if (percent > 0.001) {
                 bot.sendMessage(
                   "821331693",
                   `${coin.name} is currently up ${percent}`
                 );
                 console.log(coin.name, coin.current_price, percent.toFixed(2));
               } else {
-                if (percent <= -10) {
+                if (percent < 0.001) {
                   bot.sendMessage(
                     "821331693",
                     `${coin.name} is currently down ${percent}`
