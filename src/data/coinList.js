@@ -180,3 +180,506 @@ export const coinsList = [
   { name: "Baby Doge Coin", id: "BABYDOGE" },
   { name: "Solana", id: "SOL" },
 ];
+
+export const geckoCoins = [
+  {
+    id: "bitcoin",
+    symbol: "btc",
+    name: "Bitcoin",
+  },
+  {
+    id: "ethereum",
+    symbol: "eth",
+    name: "Ethereum",
+  },
+  {
+    id: "tether",
+    symbol: "usdt",
+    name: "Tether",
+  },
+  {
+    id: "binancecoin",
+    symbol: "bnb",
+    name: "BNB",
+  },
+  {
+    id: "solana",
+    symbol: "sol",
+    name: "Solana",
+  },
+  {
+    id: "staked-ether",
+    symbol: "steth",
+    name: "Lido Staked Ether",
+  },
+  {
+    id: "ripple",
+    symbol: "xrp",
+    name: "XRP",
+  },
+  {
+    id: "usd-coin",
+    symbol: "usdc",
+    name: "USDC",
+  },
+  {
+    id: "cardano",
+    symbol: "ada",
+    name: "Cardano",
+  },
+  {
+    id: "dogecoin",
+    symbol: "doge",
+    name: "Dogecoin",
+  },
+  {
+    id: "shiba-inu",
+    symbol: "shib",
+    name: "Shiba Inu",
+  },
+  {
+    id: "avalanche-2",
+    symbol: "avax",
+    name: "Avalanche",
+  },
+  {
+    id: "polkadot",
+    symbol: "dot",
+    name: "Polkadot",
+  },
+  {
+    id: "tron",
+    symbol: "trx",
+    name: "TRON",
+  },
+  {
+    id: "chainlink",
+    symbol: "link",
+    name: "Chainlink",
+  },
+  {
+    id: "matic-network",
+    symbol: "matic",
+    name: "Polygon",
+  },
+  {
+    id: "wrapped-bitcoin",
+    symbol: "wbtc",
+    name: "Wrapped Bitcoin",
+  },
+  {
+    id: "uniswap",
+    symbol: "uni",
+    name: "Uniswap",
+  },
+  {
+    id: "the-open-network",
+    symbol: "ton",
+    name: "Toncoin",
+  },
+  {
+    id: "bitcoin-cash",
+    symbol: "bch",
+    name: "Bitcoin Cash",
+  },
+  {
+    id: "internet-computer",
+    symbol: "icp",
+    name: "Internet Computer",
+  },
+  {
+    id: "litecoin",
+    symbol: "ltc",
+    name: "Litecoin",
+  },
+  {
+    id: "near",
+    symbol: "near",
+    name: "NEAR Protocol",
+  },
+  {
+    id: "filecoin",
+    symbol: "fil",
+    name: "Filecoin",
+  },
+  {
+    id: "ethereum-classic",
+    symbol: "etc",
+    name: "Ethereum Classic",
+  },
+  {
+    id: "leo-token",
+    symbol: "leo",
+    name: "LEO Token",
+  },
+  {
+    id: "cosmos",
+    symbol: "atom",
+    name: "Cosmos Hub",
+  },
+  {
+    id: "aptos",
+    symbol: "apt",
+    name: "Aptos",
+  },
+  {
+    id: "immutable-x",
+    symbol: "imx",
+    name: "Immutable",
+  },
+  {
+    id: "optimism",
+    symbol: "op",
+    name: "Optimism",
+  },
+  {
+    id: "render-token",
+    symbol: "rndr",
+    name: "Render",
+  },
+  {
+    id: "bittensor",
+    symbol: "tao",
+    name: "Bittensor",
+  },
+  {
+    id: "crypto-com-chain",
+    symbol: "cro",
+    name: "Cronos",
+  },
+  {
+    id: "dai",
+    symbol: "dai",
+    name: "Dai",
+  },
+  {
+    id: "hedera-hashgraph",
+    symbol: "hbar",
+    name: "Hedera",
+  },
+  {
+    id: "the-graph",
+    symbol: "grt",
+    name: "The Graph",
+  },
+  {
+    id: "blockstack",
+    symbol: "stx",
+    name: "Stacks",
+  },
+  {
+    id: "stellar",
+    symbol: "xlm",
+    name: "Stellar",
+  },
+  {
+    id: "pepe",
+    symbol: "pepe",
+    name: "Pepe",
+  },
+  {
+    id: "okb",
+    symbol: "okb",
+    name: "OKB",
+  },
+  {
+    id: "injective-protocol",
+    symbol: "inj",
+    name: "Injective",
+  },
+  {
+    id: "vechain",
+    symbol: "vet",
+    name: "VeChain",
+  },
+  {
+    id: "kaspa",
+    symbol: "kas",
+    name: "Kaspa",
+  },
+  {
+    id: "mantle",
+    symbol: "mnt",
+    name: "Mantle",
+  },
+  {
+    id: "first-digital-usd",
+    symbol: "fdusd",
+    name: "First Digital USD",
+  },
+  {
+    id: "theta-token",
+    symbol: "theta",
+    name: "Theta Network",
+  },
+  {
+    id: "fetch-ai",
+    symbol: "fet",
+    name: "Fetch.ai",
+  },
+  {
+    id: "lido-dao",
+    symbol: "ldo",
+    name: "Lido DAO",
+  },
+  {
+    id: "arbitrum",
+    symbol: "arb",
+    name: "Arbitrum",
+  },
+  {
+    id: "celestia",
+    symbol: "tia",
+    name: "Celestia",
+  },
+  {
+    id: "arweave",
+    symbol: "ar",
+    name: "Arweave",
+  },
+  {
+    id: "monero",
+    symbol: "xmr",
+    name: "Monero",
+  },
+  {
+    id: "thorchain",
+    symbol: "rune",
+    name: "THORChain",
+  },
+  {
+    id: "rocket-pool-eth",
+    symbol: "reth",
+    name: "Rocket Pool ETH",
+  },
+  {
+    id: "floki",
+    symbol: "floki",
+    name: "FLOKI",
+  },
+  {
+    id: "gala",
+    symbol: "gala",
+    name: "GALA",
+  },
+  {
+    id: "sei-network",
+    symbol: "sei",
+    name: "Sei",
+  },
+  {
+    id: "maker",
+    symbol: "mkr",
+    name: "Maker",
+  },
+  {
+    id: "dogwifcoin",
+    symbol: "wif",
+    name: "dogwifhat",
+  },
+  {
+    id: "fantom",
+    symbol: "ftm",
+    name: "Fantom",
+  },
+  {
+    id: "beam-2",
+    symbol: "beam",
+    name: "Beam",
+  },
+  {
+    id: "flow",
+    symbol: "flow",
+    name: "Flow",
+  },
+  {
+    id: "bitcoin-cash-sv",
+    symbol: "bsv",
+    name: "Bitcoin SV",
+  },
+  {
+    id: "algorand",
+    symbol: "algo",
+    name: "Algorand",
+  },
+  {
+    id: "mantle-staked-ether",
+    symbol: "meth",
+    name: "Mantle Staked Ether",
+  },
+  {
+    id: "bonk",
+    symbol: "bonk",
+    name: "Bonk",
+  },
+  {
+    id: "sui",
+    symbol: "sui",
+    name: "Sui",
+  },
+  {
+    id: "aave",
+    symbol: "aave",
+    name: "Aave",
+  },
+  {
+    id: "elrond-erd-2",
+    symbol: "egld",
+    name: "MultiversX",
+  },
+  {
+    id: "axie-infinity",
+    symbol: "axs",
+    name: "Axie Infinity",
+  },
+  {
+    id: "the-sandbox",
+    symbol: "sand",
+    name: "The Sandbox",
+  },
+  {
+    id: "starknet",
+    symbol: "strk",
+    name: "Starknet",
+  },
+  {
+    id: "quant-network",
+    symbol: "qnt",
+    name: "Quant",
+  },
+  {
+    id: "dydx-chain",
+    symbol: "dydx",
+    name: "dYdX",
+  },
+  {
+    id: "bittorrent",
+    symbol: "btt",
+    name: "BitTorrent",
+  },
+  {
+    id: "singularitynet",
+    symbol: "agix",
+    name: "SingularityNET",
+  },
+  {
+    id: "ordinals",
+    symbol: "ordi",
+    name: "ORDI",
+  },
+  {
+    id: "worldcoin-wld",
+    symbol: "wld",
+    name: "Worldcoin",
+  },
+  {
+    id: "mina-protocol",
+    symbol: "mina",
+    name: "Mina Protocol",
+  },
+  {
+    id: "ribbon-finance",
+    symbol: "rbn",
+    name: "Ribbon Finance",
+  },
+  {
+    id: "flare-networks",
+    symbol: "flr",
+    name: "Flare",
+  },
+  {
+    id: "decentraland",
+    symbol: "mana",
+    name: "Decentraland",
+  },
+  {
+    id: "apecoin",
+    symbol: "ape",
+    name: "ApeCoin",
+  },
+  {
+    id: "havven",
+    symbol: "snx",
+    name: "Synthetix Network",
+  },
+  {
+    id: "kucoin-shares",
+    symbol: "kcs",
+    name: "KuCoin",
+  },
+  {
+    id: "akash-network",
+    symbol: "akt",
+    name: "Akash Network",
+  },
+  {
+    id: "chiliz",
+    symbol: "chz",
+    name: "Chiliz",
+  },
+  {
+    id: "sats-ordinals",
+    symbol: "sats",
+    name: "SATS (Ordinals)",
+  },
+  {
+    id: "eos",
+    symbol: "eos",
+    name: "EOS",
+  },
+  {
+    id: "tokenize-xchange",
+    symbol: "tkx",
+    name: "Tokenize Xchange",
+  },
+  {
+    id: "helium",
+    symbol: "hnt",
+    name: "Helium",
+  },
+  {
+    id: "ecash",
+    symbol: "xec",
+    name: "eCash",
+  },
+  {
+    id: "axelar",
+    symbol: "axl",
+    name: "Axelar",
+  },
+  {
+    id: "tezos",
+    symbol: "xtz",
+    name: "Tezos",
+  },
+  {
+    id: "true-usd",
+    symbol: "tusd",
+    name: "TrueUSD",
+  },
+  {
+    id: "conflux-token",
+    symbol: "cfx",
+    name: "Conflux",
+  },
+  {
+    id: "dydx",
+    symbol: "ethdydx",
+    name: "dYdX",
+  },
+  {
+    id: "neo",
+    symbol: "neo",
+    name: "NEO",
+  },
+  {
+    id: "whitebit",
+    symbol: "wbt",
+    name: "WhiteBIT Coin",
+  },
+  {
+    id: "bitget-token",
+    symbol: "bgb",
+    name: "Bitget Token",
+  },
+];
