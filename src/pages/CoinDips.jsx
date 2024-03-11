@@ -36,111 +36,119 @@ const CoinDips = () => {
 
           {/* Highs */}
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In High above 10%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {changes &&
-                  changes.percent10.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={false} />
-                  ))}
-                {changes && changes.percent10.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {changes &&
+                    changes.percent10.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={false} />
+                    ))}
+                  {changes && changes.percent10.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In High above 20%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {changes &&
-                  changes.percent20.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={false} />
-                  ))}
-                {changes && changes.percent20.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {changes &&
+                    changes.percent20.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={false} />
+                    ))}
+                  {changes && changes.percent20.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In High above 30%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {changes &&
-                  changes.percent30.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={false} />
-                  ))}
-                {changes && changes.percent30.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {changes &&
+                    changes.percent30.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={false} />
+                    ))}
+                  {changes && changes.percent30.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In High above 40%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {changes &&
-                  changes.percent40.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={false} />
-                  ))}
-                {changes && changes.percent40.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {changes &&
+                    changes.percent40.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={false} />
+                    ))}
+                  {changes && changes.percent40.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
           {/* Highs */}
         </div>
@@ -154,111 +162,121 @@ const CoinDips = () => {
 
           {/* Dips */}
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In Dip Below 10%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {nchanges &&
-                  nchanges.percent10.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={true} />
-                  ))}
-                {nchanges && nchanges.percent10.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {nchanges &&
+                    nchanges.percent10.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={true} />
+                    ))}
+                  {nchanges && nchanges.percent10.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In Dip Below 20%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {nchanges &&
-                  nchanges.percent20.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={true} />
-                  ))}
-                {nchanges && nchanges.percent20.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              {" "}
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {nchanges &&
+                    nchanges.percent20.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={true} />
+                    ))}
+                  {nchanges && nchanges.percent20.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In Dip Below 30%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {nchanges &&
-                  nchanges.percent30.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={true} />
-                  ))}
-                {nchanges && nchanges.percent30.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              {" "}
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {nchanges &&
+                    nchanges.percent30.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={true} />
+                    ))}
+                  {nchanges && nchanges.percent30.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <div>
-            <h1 className="text-center text-[1.5rem] font-semibold">
+            <h1 className="text-center text-[1.2rem] sm:text-[1.5rem] font-semibold">
               Coins In Dip Below 40%
             </h1>
-            <table className="w-full mt-[20px]">
-              <thead>
-                <tr>
-                  <th align="left">Coin name</th>
-                  <th align="left">Current Price</th>
-                  <th align="left">ATH price</th>
-                  <th align="center">90 days change %</th>
-                </tr>
-              </thead>
-              <tbody>
-                {nchanges &&
-                  nchanges.percent40.map((change, i) => (
-                    <CoinDip key={i} change={change} dip={true} />
-                  ))}
-                {nchanges && nchanges.percent40.length < 1 && (
-                  <h1 className="mt-[20px] text-[1.2rem] font-medium">
-                    None at the Moment
-                  </h1>
-                )}
-              </tbody>
-            </table>
+            <div className="w-full overflow-x-auto">
+              <table className="w-[600px] sm:w-full mt-[20px]">
+                <thead>
+                  <tr>
+                    <th align="left">Coin name</th>
+                    <th align="left">Current Price</th>
+                    <th align="left">ATH price</th>
+                    <th align="center">90 days change %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {nchanges &&
+                    nchanges.percent40.map((change, i) => (
+                      <CoinDip key={i} change={change} dip={true} />
+                    ))}
+                  {nchanges && nchanges.percent40.length < 1 && (
+                    <h1 className="mt-[20px] text-[1.2rem] font-medium">
+                      None at the Moment
+                    </h1>
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
           {/* Dips */}
         </div>

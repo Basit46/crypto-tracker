@@ -3,7 +3,7 @@ import React from "react";
 const CoinDip = ({ change, dip }) => {
   return (
     <tr>
-      <td className="w-[40%]">
+      <td className="sm:w-[40%]">
         <div className="flex gap-[5px] items-center">
           <img
             src={change?.coin.image}
