@@ -427,7 +427,8 @@ ${nchanges.percent40
 
 fetchDetails2();
 
-setInterval(fetchDetails2, 1800000);
+// setInterval(fetchDetails2, 1800000);
+setInterval(fetchDetails2, 120000);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
