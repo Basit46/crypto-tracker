@@ -427,7 +427,6 @@ ${nchanges.percent40
 
 fetchDetails2();
 
-// setInterval(fetchDetails2, 1800000);
 setInterval(fetchDetails2, 120000);
 
 app.listen(3000, () => {
