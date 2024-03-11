@@ -113,7 +113,7 @@ const FetchContextProvider = ({ children }) => {
 
   //speak to backend
   useEffect(() => {
-    axios.get("http://localhost:5000/").then((res) => {
+    axios.get("https://crypto-tracker-server-eight.vercel.app/").then((res) => {
       setChanges(res.data.changes);
       setNChanges(res.data.nchanges);
     });
