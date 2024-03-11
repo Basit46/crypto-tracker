@@ -16,6 +16,9 @@ const FetchContextProvider = ({ children }) => {
   const [coinsFetched, setCoinsFetched] = useState(false);
   const [watchList, setWatchList] = useState([]);
 
+  const [changes, setChanges] = useState();
+  const [nchanges, setNChanges] = useState();
+
   const api_key = import.meta.env.VITE_API_KEY;
 
   //Fetch Coins
@@ -108,6 +111,14 @@ const FetchContextProvider = ({ children }) => {
     }
   };
 
+  //speak to backend
+  useEffect(() => {
+    axios.get("http://localhost:5000/").then((res) => {
+      setChanges(res.data.changes);
+      setNChanges(res.data.nchanges);
+    });
+  }, []);
+
   return (
     <fetchContext.Provider
       value={{
@@ -117,6 +128,8 @@ const FetchContextProvider = ({ children }) => {
         watchList,
         addToWatchList,
         removeFromWatchList,
+        changes,
+        nchanges,
       }}
     >
       {children}

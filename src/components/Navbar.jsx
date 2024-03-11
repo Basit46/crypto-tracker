@@ -5,6 +5,7 @@ import { FaWallet } from "react-icons/fa6";
 import { ImNewspaper } from "react-icons/im";
 import { Link, NavLink } from "react-router-dom";
 import { useGlobalContext } from "../context/globalContext";
+import { PiChartLineDownFill } from "react-icons/pi";
 
 const Navbar = () => {
   const { isOpen, setIsOpen } = useGlobalContext();
@@ -26,6 +27,9 @@ const Navbar = () => {
       <ul className="mt-[90px] flex flex-col gap-[40px]">
         <NavLink onClick={() => setIsOpen(false)} to="/">
           <IoHome /> <p>Home</p>
+        </NavLink>
+        <NavLink onClick={() => setIsOpen(false)} to="/coin-levels">
+          <PiChartLineDownFill /> <p>Coin Levels</p>
         </NavLink>
         <NavLink onClick={() => setIsOpen(false)} to="/watchlist">
           <PiUserListFill /> <p>WatchList</p>

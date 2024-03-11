@@ -13,6 +13,7 @@ import Portfolio from "./pages/Portfolio";
 import WatchList from "./pages/WatchList";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CoinDips from "./pages/CoinDips";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<ArticleDetail />} />
             <Route path="/notifications" element={<ManageNoti />} />
+            <Route path="/coin-levels" element={<CoinDips />} />
           </Routes>
         </div>
       </div>

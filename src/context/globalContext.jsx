@@ -82,7 +82,7 @@ const GlobalContextProvider = ({ children }) => {
 
       // Handle the response data here, for example:
       setAlertsApi(response.data);
-      console.log("Response Data:", response.data);
+      // console.log("Response Data:", response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
