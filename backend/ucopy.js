@@ -39,7 +39,7 @@ const fetchDetails = async () => {
 
   try {
     const response = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=250&price_change_percentage=30d&precision=2",
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd",
       {
         method: "GET",
         headers: {
@@ -54,72 +54,100 @@ const fetchDetails = async () => {
 
     const data = await response.json();
 
-    data.forEach((coin) => {
-      let percent = coin.price_change_percentage_30d_in_currency;
-      let nprice = coin.current_price;
-      switch (true) {
-        case percent > 10 && percent < 20:
-          changes.percent10.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
+    const getData = async (start, end) => {
+      for (const coin of data.slice(start, end)) {
+        const url = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=90&interval=daily&precision=2`;
+
+        try {
+          const chartResponse = await fetch(url, {
+            method: "GET",
+            headers: {
+              "x-cg-demo-api-key": "CG-fn1QNCfAnMAB4yccJY3J5raa",
+            },
           });
 
-          break;
-        case percent > 20 && percent < 30:
-          changes.percent20.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        case percent > 30 && percent < 40:
-          changes.percent30.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        case percent > 40:
-          changes.percent40.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        case percent > -20 && percent <= -10:
-          nchanges.percent10.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        case percent > -30 && percent <= -20:
-          nchanges.percent20.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        case percent > -40 && percent <= -30:
-          nchanges.percent30.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        case percent <= -40:
-          nchanges.percent20.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
-          break;
-        default:
-          // Handle the default case if needed
-          break;
+          if (!chartResponse.ok) {
+            throw new Error(
+              `Network response was not ok: ${chartResponse.status}`
+            );
+          }
+
+          const chartData = await chartResponse.json();
+
+          let pprice = chartData.prices[0][1];
+          let nprice = chartData.prices[chartData.prices.length - 1][1];
+
+          let percent = ((nprice - pprice) / pprice) * 100;
+
+          switch (true) {
+            case percent > 10 && percent < 20:
+              changes.percent10.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+
+              break;
+            case percent > 20 && percent < 30:
+              changes.percent20.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            case percent > 30 && percent < 40:
+              changes.percent30.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            case percent > 40:
+              changes.percent40.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            case percent > -20 && percent <= -10:
+              nchanges.percent10.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            case percent > -30 && percent <= -20:
+              nchanges.percent20.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            case percent > -40 && percent <= -30:
+              nchanges.percent30.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            case percent <= -40:
+              nchanges.percent20.push({
+                coin: coin,
+                percent: percent,
+                nprice: nprice,
+              });
+              break;
+            default:
+              // Handle the default case if needed
+              break;
+          }
+        } catch (error) {
+          console.log(error);
+        }
       }
-    });
+    };
+
+    await getData(0, 25);
 
     return { changes, nchanges };
   } catch (error) {
