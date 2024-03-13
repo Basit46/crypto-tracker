@@ -194,6 +194,10 @@ ${value
     }
 
     formattedTables.forEach((formattedTable, index) => {
+      bot.sendMessage("1404652184", formattedTable, {
+        parse_mode: "Markdown",
+      });
+
       bot.sendMessage("821331693", formattedTable, {
         parse_mode: "Markdown",
       });
@@ -206,7 +210,7 @@ ${value
 
 fetchDetails2();
 
-setInterval(fetchDetails2, 120000);
+setInterval(fetchDetails2, 3600000);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
