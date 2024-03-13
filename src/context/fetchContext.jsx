@@ -119,6 +119,8 @@ const FetchContextProvider = ({ children }) => {
     });
   }, []);
 
+  //fairs
+
   // useEffect(() => {
   //   axios.get("http://localhost:5000/").then((res) => {
   //     setChanges(res.data.changes);
