@@ -3,10 +3,14 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 5000;
+const TelegramBot = require("node-telegram-bot-api");
 
 app.use(cors());
 
 app.use(bodyParser.json());
+
+const token = "7053002854:AAEK76BHJDEsz-ycDUSu_DxZZNPKQQNKeCs";
+const bot = new TelegramBot(token, { polling: true });
 
 app.get("/", async (req, res) => {
   try {
@@ -173,18 +177,18 @@ const fetchDetails2 = async () => {
 
     for (const [key, value] of Object.entries(nchanges)) {
       const formattedTable = `
-                ${key.replace("percent", "") * 10}% Dip
-                ----------------------
-                Coin | Price | ATH | 30 Days change %
-                --------------------------------------------
-                ${value
-                  .map(
-                    (row) =>
-                      `${row.coin.name} | ${row.coin.current_price} | ${
-                        row.coin.ath
-                      } | ${row.percent.toFixed(2)}%`
-                  )
-                  .join("\n")}
+                ${key.replace("percent", "") * 1}% Dip
+----------------------
+Coin | Price | ATH | 30 Days change %
+--------------------------------------------
+${value
+  .map(
+    (row) =>
+      `${row.coin.name} | ${row.coin.current_price} | ${
+        row.coin.ath
+      } | ${row.percent.toFixed(2)}%`
+  )
+  .join("\n")}
             `;
       formattedTables.push(formattedTable);
     }
