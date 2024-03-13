@@ -129,12 +129,6 @@ const fetchDetails = async () => {
 };
 
 const fetchDetails2 = async () => {
-  let changes = {
-    percent10: [],
-    percent20: [],
-    percent30: [],
-    percent40: [],
-  };
   let nchanges = {
     percent10: [],
     percent20: [],
@@ -144,7 +138,7 @@ const fetchDetails2 = async () => {
 
   try {
     const response = await fetch(
-      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd",
+      "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=250&price_change_percentage=30d&precision=2",
       {
         method: "GET",
         headers: {
@@ -159,105 +153,47 @@ const fetchDetails2 = async () => {
 
     const data = await response.json();
 
-    const getData1 = async () => {
-      for (const coin of data.slice(0, 25)) {
-        const url = `https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=usd&days=90&interval=daily&precision=2`;
-
-        try {
-          const chartResponse = await fetch(url, {
-            method: "GET",
-            headers: {
-              "x-cg-demo-api-key": "CG-fn1QNCfAnMAB4yccJY3J5raa",
-            },
+    data.forEach((coin) => {
+      let percent = coin.price_change_percentage_30d_in_currency;
+      let nprice = coin.current_price;
+      switch (true) {
+        case percent > -20 && percent <= -10:
+          nchanges.percent10.push({
+            coin: coin,
+            percent: percent,
+            nprice: nprice,
           });
-
-          if (!chartResponse.ok) {
-            throw new Error(
-              `Network response was not ok: ${chartResponse.status}`
-            );
-          }
-
-          const chartData = await chartResponse.json();
-
-          let pprice = chartData.prices[0][1];
-          let nprice = chartData.prices[chartData.prices.length - 1][1];
-
-          let percent = ((nprice - pprice) / pprice) * 100;
-
-          switch (true) {
-            case percent > 10 && percent < 20:
-              changes.percent10.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-
-              break;
-            case percent > 20 && percent < 30:
-              changes.percent20.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            case percent > 30 && percent < 40:
-              changes.percent30.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            case percent > 40:
-              changes.percent40.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            case percent > -20 && percent <= -10:
-              nchanges.percent10.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            case percent > -30 && percent <= -20:
-              nchanges.percent20.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            case percent > -40 && percent <= -30:
-              nchanges.percent30.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            case percent <= -40:
-              nchanges.percent20.push({
-                coin: coin,
-                percent: percent,
-                nprice: nprice,
-              });
-              break;
-            default:
-              // Handle the default case if needed
-              break;
-          }
-        } catch (error) {
-          console.log(error);
-        }
+          break;
+        case percent > -30 && percent <= -20:
+          nchanges.percent20.push({
+            coin: coin,
+            percent: percent,
+            nprice: nprice,
+          });
+          break;
+        case percent > -40 && percent <= -30:
+          nchanges.percent30.push({
+            coin: coin,
+            percent: percent,
+            nprice: nprice,
+          });
+          break;
+        case percent <= -40:
+          nchanges.percent20.push({
+            coin: coin,
+            percent: percent,
+            nprice: nprice,
+          });
+          break;
+        default:
+          break;
       }
-    };
-
-    await getData1();
+    });
 
     const formattedTable5 = `
 10% Dip
 ----------------------
-Coin | Price | ATH | 90 Days change %
+Coin | Price | ATH | 30 Days change %
 --------------------------------------------
 ${nchanges.percent10
   .map(
@@ -269,12 +205,14 @@ ${nchanges.percent10
   .join("\n")}
 `;
 
-    bot.sendMessage("821331693", formattedTable5, { parse_mode: "Markdown" });
+    await bot.sendMessage("821331693", formattedTable5, {
+      parse_mode: "Markdown",
+    });
 
     const formattedTable6 = `
 20% Dip
 ----------------------
-Coin | Price | ATH | 90 Days change %
+Coin | Price | ATH | 30 Days change %
 --------------------------------------------
 ${nchanges.percent20
   .map(
@@ -286,12 +224,14 @@ ${nchanges.percent20
   .join("\n")}
 `;
 
-    bot.sendMessage("821331693", formattedTable6, { parse_mode: "Markdown" });
+    await bot.sendMessage("821331693", formattedTable6, {
+      parse_mode: "Markdown",
+    });
 
     const formattedTable7 = `
 30% Dip
 ----------------------
-Coin | Price | ATH | 90 Days change %
+Coin | Price | ATH | 30 Days change %
 --------------------------------------------
 ${nchanges.percent30
   .map(
@@ -303,12 +243,14 @@ ${nchanges.percent30
   .join("\n")}
 `;
 
-    bot.sendMessage("821331693", formattedTable7, { parse_mode: "Markdown" });
+    await bot.sendMessage("821331693", formattedTable7, {
+      parse_mode: "Markdown",
+    });
 
     const formattedTable8 = `
 40% Dip
 ----------------------
-Coin | Price | ATH | 90 Days change %
+Coin | Price | ATH | 30 Days change %
 --------------------------------------------
 ${nchanges.percent40
   .map(
@@ -319,29 +261,22 @@ ${nchanges.percent40
   )
   .join("\n")}
 `;
-
-    bot.sendMessage("821331693", formattedTable8, { parse_mode: "Markdown" });
-
-    return { changes, nchanges };
+    await bot.sendMessage("821331693", formattedTable8, {
+      parse_mode: "Markdown",
+    });
   } catch (error) {
     console.error("Fetch error:", error);
     throw error;
   }
 };
 
-// fetchDetails2();
+fetchDetails2();
 
-// setInterval(fetchDetails2, 120000);
+setInterval(fetchDetails2, 60000);
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
-
-// fetchDetails();
-
-// setInterval(() => {
-//   fetchDetails();
-// }, 30 * 60 * 1000); // 30 minutes interval
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

@@ -31,7 +31,7 @@ const CoinDips = () => {
       {showHigh && (
         <div className="flex flex-col gap-[20px]">
           <h1 className="text-center text-[20px] font-medium">
-            HIGHS USING 90 DAYS TIMEFRAME
+            HIGHS USING 30 DAYS TIMEFRAME
           </h1>
 
           {/* Highs */}
@@ -46,7 +46,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -75,7 +75,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -104,7 +104,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -133,7 +133,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -157,7 +157,7 @@ const CoinDips = () => {
       {!showHigh && (
         <div className="flex flex-col gap-[20px]">
           <h1 className="text-center text-[20px] font-medium">
-            DIPS USING 90 DAYS TIMEFRAME
+            DIPS USING 30 DAYS TIMEFRAME
           </h1>
 
           {/* Dips */}
@@ -172,7 +172,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -202,7 +202,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -232,7 +232,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -261,7 +261,7 @@ const CoinDips = () => {
                     <th align="left">Coin name</th>
                     <th align="left">Current Price</th>
                     <th align="left">ATH price</th>
-                    <th align="center">90 days change %</th>
+                    <th align="center">30 days change %</th>
                   </tr>
                 </thead>
                 <tbody>
