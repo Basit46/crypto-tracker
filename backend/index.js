@@ -206,7 +206,7 @@ ${value
 
 fetchDetails2();
 
-// setInterval(fetchDetails2, 120000);
+setInterval(fetchDetails2, 120000);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
