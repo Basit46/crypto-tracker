@@ -202,11 +202,7 @@ const fetchDetails2 = async () => {
 
 fetchDetails2();
 
-setInterval(fetchDetails2, 120000);
-
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+// setInterval(fetchDetails2, 120000);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
