@@ -33,111 +33,46 @@ const fetchDetails2 = async () => {
       let nprice = coin.current_price;
       switch (true) {
         case percent > -20 && percent <= -10:
-          nchanges.percent10.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
+          nchanges.percent10.push({ coin, percent, nprice });
           break;
         case percent > -30 && percent <= -20:
-          nchanges.percent20.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
+          nchanges.percent20.push({ coin, percent, nprice });
           break;
         case percent > -40 && percent <= -30:
-          nchanges.percent30.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
+          nchanges.percent30.push({ coin, percent, nprice });
           break;
         case percent <= -40:
-          nchanges.percent20.push({
-            coin: coin,
-            percent: percent,
-            nprice: nprice,
-          });
+          nchanges.percent40.push({ coin, percent, nprice });
           break;
         default:
           break;
       }
     });
 
-    const formattedTable5 = `
-  10% Dip
-  ----------------------
-  Coin | Price | ATH | 30 Days change %
-  --------------------------------------------
-  ${nchanges.percent10
-    .map(
-      (row) =>
-        `${row.coin.name} | ${row.coin.current_price} | ${
-          row.coin.ath
-        } | ${row.percent.toFixed(2)}%`
-    )
-    .join("\n")}
-  `;
+    const formattedTables = [];
 
-    bot.sendMessage("821331693", formattedTable5, {
-      parse_mode: "Markdown",
-    });
+    for (const [key, value] of Object.entries(nchanges)) {
+      const formattedTable = `
+                ${key.replace("percent", "") * 10}% Dip
+                ----------------------
+                Coin | Price | ATH | 30 Days change %
+                --------------------------------------------
+                ${value
+                  .map(
+                    (row) =>
+                      `${row.coin.name} | ${row.coin.current_price} | ${
+                        row.coin.ath
+                      } | ${row.percent.toFixed(2)}%`
+                  )
+                  .join("\n")}
+            `;
+      formattedTables.push(formattedTable);
+    }
 
-    const formattedTable6 = `
-  20% Dip
-  ----------------------
-  Coin | Price | ATH | 30 Days change %
-  --------------------------------------------
-  ${nchanges.percent20
-    .map(
-      (row) =>
-        `${row.coin.name} | ${row.coin.current_price} | ${
-          row.coin.ath
-        } | ${row.percent.toFixed(2)}%`
-    )
-    .join("\n")}
-  `;
-
-    bot.sendMessage("821331693", formattedTable6, {
-      parse_mode: "Markdown",
-    });
-
-    const formattedTable7 = `
-  30% Dip
-  ----------------------
-  Coin | Price | ATH | 30 Days change %
-  --------------------------------------------
-  ${nchanges.percent30
-    .map(
-      (row) =>
-        `${row.coin.name} | ${row.coin.current_price} | ${
-          row.coin.ath
-        } | ${row.percent.toFixed(2)}%`
-    )
-    .join("\n")}
-  `;
-
-    bot.sendMessage("821331693", formattedTable7, {
-      parse_mode: "Markdown",
-    });
-
-    const formattedTable8 = `
-  40% Dip
-  ----------------------
-  Coin | Price | ATH | 30 Days change %
-  --------------------------------------------
-  ${nchanges.percent40
-    .map(
-      (row) =>
-        `${row.coin.name} | ${row.coin.current_price} | ${
-          row.coin.ath
-        } | ${row.percent.toFixed(2)}%`
-    )
-    .join("\n")}
-  `;
-    bot.sendMessage("821331693", formattedTable8, {
-      parse_mode: "Markdown",
+    formattedTables.forEach((formattedTable, index) => {
+      bot.sendMessage("821331693", formattedTable, {
+        parse_mode: "Markdown",
+      });
     });
   } catch (error) {
     console.error("Fetch error:", error);
