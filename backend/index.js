@@ -205,7 +205,7 @@ ${nchanges.percent10
   .join("\n")}
 `;
 
-    await bot.sendMessage("821331693", formattedTable5, {
+    bot.sendMessage("821331693", formattedTable5, {
       parse_mode: "Markdown",
     });
 
@@ -224,7 +224,7 @@ ${nchanges.percent20
   .join("\n")}
 `;
 
-    await bot.sendMessage("821331693", formattedTable6, {
+    bot.sendMessage("821331693", formattedTable6, {
       parse_mode: "Markdown",
     });
 
@@ -243,7 +243,7 @@ ${nchanges.percent30
   .join("\n")}
 `;
 
-    await bot.sendMessage("821331693", formattedTable7, {
+    bot.sendMessage("821331693", formattedTable7, {
       parse_mode: "Markdown",
     });
 
@@ -261,7 +261,7 @@ ${nchanges.percent40
   )
   .join("\n")}
 `;
-    await bot.sendMessage("821331693", formattedTable8, {
+    bot.sendMessage("821331693", formattedTable8, {
       parse_mode: "Markdown",
     });
   } catch (error) {
