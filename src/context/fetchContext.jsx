@@ -111,7 +111,7 @@ const FetchContextProvider = ({ children }) => {
     }
   };
 
-  //speak to backend
+  //speak to backend as per chief speaker
   useEffect(() => {
     axios.get("https://crypto-tracker-server-eight.vercel.app/").then((res) => {
       setChanges(res.data.changes);
